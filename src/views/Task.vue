@@ -14,6 +14,8 @@
         :value="task.description"
         @change="updateTaskProperty($event, 'description')"
       />
+
+      <button @click="deleteTask">delete</button>
     </div>
   </div>
 </template>
@@ -35,6 +37,12 @@ export default {
         key,
         value: e.target.value
       })
+    },
+    deleteTask () {
+      const columnIndex = this.$route.params.columnIndex
+      const taskIndex = this.$route.params.taskIndex
+      this.$store.commit('REMOVE_TASK', { columnIndex, taskIndex })
+      this.$router.push({ name: 'board' })
     }
   }
 }

@@ -40,11 +40,17 @@ export default {
     taskIndex: {
       type: Number,
       required: true
+    },
+    columnIndex: {
+      type: Number
     }
   },
   methods: {
     goToTask (task) {
-      this.$router.push({ name: 'task', params: { id: task.id } })
+      this.$router.push({
+        name: 'task',
+        params: { id: task.id, columnIndex: this.columnIndex, taskIndex: this.taskIndex }
+      })
     }
   }
 }

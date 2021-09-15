@@ -17,7 +17,8 @@ export default new Router({
         {
           path: 'task/:id',
           name: 'task',
-          component: Task
+          component: Task,
+          props: { columnIndex: true, taskIndex: true }
         }
       ]
     }
