@@ -5,7 +5,8 @@ export default {
   columns: [
     {
       name: constants.BASE_COLUMN,
-      baseColumn: true,
+      isBaseColumn: true,
+      freeze: true,
       tasks: [
         {
           description: '',

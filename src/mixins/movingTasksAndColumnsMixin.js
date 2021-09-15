@@ -22,23 +22,26 @@ export default {
       }
     },
     moveTask ({ fromColumnIndex, fromTaskIndex }) {
+      if (this.column.freeze) return
+      console.log(this.column)
       const fromTasks = this.board.columns[fromColumnIndex].tasks
       if (fromTasks === this.column.tasks) return
-      const baseColumn = !!this.board.columns[fromColumnIndex].baseColumn
+      const isBaseColumn = !!this.board.columns[fromColumnIndex].isBaseColumn
       this.$store.commit('MOVE_TASK', {
         fromTasks,
         fromTaskIndex,
         toTasks: this.column.tasks,
         toTaskIndex: this.taskIndex,
-        baseColumn
+        isBaseColumn
       })
     },
     moveColumn ({ fromColumnIndex }) {
-      const baseColumn = !!this.board.columns[fromColumnIndex].baseColumn
+      if (this.column.freeze) return
+      const isBaseColumn = !!this.board.columns[fromColumnIndex].isBaseColumn
       this.$store.commit('MOVE_COLUMN', {
         fromColumnIndex,
         toColumnIndex: this.columnIndex,
-        baseColumn
+        isBaseColumn
       })
     }
   }
