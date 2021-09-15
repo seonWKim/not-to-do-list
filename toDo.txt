@@ -1,4 +1,5 @@
 // todo
 removing columns
 domain 연결
+reset all
 

@@ -10,12 +10,16 @@
       >
 
       <textarea
-        class="relative w-full bg-transparent px-2 border mt-2 h-64 border-none leading-normal"
+        class="relative w-full bg-transparent px-2 border mt-2 h-64 leading-normal"
         :value="task.description"
         @change="updateTaskProperty($event, 'description')"
       />
 
-      <button @click="deleteTask">delete</button>
+      <button
+        @click="deleteTask"
+        class="mt-2 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold py-2 px-4 border border-blue-500 rounded">
+        delete
+      </button>
     </div>
   </div>
 </template>
@@ -39,6 +43,7 @@ export default {
       })
     },
     deleteTask () {
+      if (!window.confirm('Confirm you want to delete?')) return
       const columnIndex = this.$route.params.columnIndex
       const taskIndex = this.$route.params.taskIndex
       this.$store.commit('REMOVE_TASK', { columnIndex, taskIndex })

@@ -17,17 +17,16 @@
           <div :style="{
           'max-width': '3px',
           'margin-right': '20px',
-          'color': $store.state.board.columns[this.columnIndex].freeze ? '#2563EB' : '#9CA3AF',
+          'color': $store.state.board.columns[this.columnIndex].freeze ? '#DC2626' : '#9CA3AF',
           'cursor': mouseOverDeleteIcon ? 'pointer' : 'default'
         }"
                @mouseover="mouseOverCheckIcon = true"
                @mouseleave="mouseOverCheckIcon = false"
                @click="reverseFreeze(columnIndex)"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clip-rule="evenodd"/>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z" />
             </svg>
           </div>
           <div :style="{
