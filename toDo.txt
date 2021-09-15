@@ -1,8 +1,5 @@
 // todo
-Columns from NOT TO DO LIST should be copied (not moved) into DONE columns
-Other columns -> base Column shouldn't be added
-Adding a new day automatically
-NOT TO DO LIST column should be set in the localStorage independently
+docker settings for
 removing columns
 
 // finished
