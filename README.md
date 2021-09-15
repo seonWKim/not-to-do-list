@@ -1,29 +1,10 @@
-# not-to-do-list
+# NOT TO DO LIST 
 
-## Project setup
-```
-yarn install
-```
+## Reference 
+* [Vue mastery trello clone](https://github.com/Code-Pop/watch-us-build-trello/releases/tag/lesson-9-complete)
+* [Youtube - Why not-to-do-list is important](https://www.youtube.com/watch?v=gmrs8UxAZwo&t=295s)
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
-
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Why Not-To-Do-List
+* Most successful people not only have a to-do list but also a not-to-do-list
+* More efficient way to manage time
+* To be a better person
