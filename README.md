@@ -8,3 +8,30 @@
 * Most successful people not only have a to-do list but also a not-to-do-list
 * More efficient way to manage time
 * To be a better person
+
+## How to use this application 
+
+### Project setup 
+```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn run serve
+```
+
+### Compiles and minifies for production
+```
+yarn run build
+```
+
+### Run your tests
+```
+yarn run test
+```
+
+### Lints and fixes files
+```
+yarn run lint
+```
