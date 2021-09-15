@@ -62,7 +62,8 @@ export default {
       const today = new Date()
       const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
 
-      if (this.$store.state.board.columns[1].name === date) {
+      const columns = this.$store.state.board.columns
+      if (columns.length >= 2 && columns[1].name === date) {
         let agreed = window.confirm("You've already registered today's record. Register again?")
         if (!agreed) return
       }
