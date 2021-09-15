@@ -1,7 +1,4 @@
 // todo
-docker settings for
 removing columns
-
-// finished
-Create independent column for NOT TO DO LIST -> added baseColumn attribute
+domain 연결
 

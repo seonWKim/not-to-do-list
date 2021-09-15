@@ -9,22 +9,41 @@
         fromColumnIndex: columnIndex
       }"
     >
-      <div class="flex justify-between" @click="reverseFreeze(columnIndex)">
+      <div class="flex justify-between">
         <div class="flex items-center mb-2 font-bold">
           {{ column.name }}
         </div>
-        <div :style="{
+        <div class="flex">
+          <div :style="{
           'max-width': '3px',
           'margin-right': '20px',
           'color': $store.state.board.columns[this.columnIndex].freeze ? '#2563EB' : '#9CA3AF',
-          'cursor': mouseOverCheckIcon ? 'pointer' : 'default'
+          'cursor': mouseOverDeleteIcon ? 'pointer' : 'default'
         }"
-          @mouseover="mouseOverCheckIcon = true"
-          @mouseleave="mouseOverCheckIcon = false"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-          </svg>
+               @mouseover="mouseOverCheckIcon = true"
+               @mouseleave="mouseOverCheckIcon = false"
+               @click="reverseFreeze(columnIndex)"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"/>
+            </svg>
+          </div>
+          <div :style="{
+          'max-width': '3px',
+          'margin-right': '20px',
+          'cursor': mouseOverCheckIcon ? 'pointer' : 'default',
+          'color': '#9CA3AF'
+        }"
+               @mouseover="mouseOverDeleteIcon = true"
+               @mouseleave="mouseOverDeleteIcon = false"
+               @click="deleteColumn(columnIndex)"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M3 12l6.414 6.414a2 2 0 001.414.586H19a2 2 0 002-2V7a2 2 0 00-2-2h-8.172a2 2 0 00-1.414.586L3 12z" />
+            </svg>
+          </div>
         </div>
       </div>
       <div class="list-reset">
@@ -85,13 +104,29 @@ export default {
     },
     reverseFreeze (columnIndex) {
       let column = this.$store.state.board.columns[columnIndex]
+      if (!column.freeze && !window.confirm("If you freeze a column you won't be able to move tasks around. Confirm you want to freeze?")) return
       if (column.freeze === undefined) column.freeze = false
       column.freeze = !column.freeze
+    },
+    deleteColumn (columnIndex) {
+      let column = this.$store.state.board.columns[columnIndex]
+      if (column.freeze) {
+        alert("This column is frozen. You can't delete a frozen column")
+        return
+      }
+      if (this.$store.state.board.columns[columnIndex].isBaseColumn) {
+        alert("You can't delete a base column")
+        return
+      }
+      if (window.confirm('Are you sure you want to delete this column?')) {
+        this.$store.commit('DELETE_COLUMN', { columnIndex })
+      }
     }
   },
   data () {
     return {
-      mouseOverCheckIcon: false
+      mouseOverCheckIcon: false,
+      mouseOverDeleteIcon: false
     }
   }
 }
