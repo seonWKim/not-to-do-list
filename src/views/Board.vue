@@ -73,7 +73,7 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
 .board {
   @apply p-4 bg-teal-dark h-full overflow-auto;
 }

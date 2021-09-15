@@ -10,7 +10,7 @@
       }"
     >
       <div class="flex justify-between">
-        <div class="flex items-center mb-2 font-bold">
+        <div class="flex items-center mb-2 font-bold text-color-green" :class="{ 'text-red': imperfectDay }">
           {{ column.name }}
         </div>
         <div class="flex">
@@ -85,6 +85,10 @@ export default {
   },
   mixins: [movingTasksAndColumnsMixin],
   computed: {
+    imperfectDay () {
+      if (this.$store.state.board.columns[this.columnIndex].isBaseColumn) return false
+      return this.$store.state.board.columns[this.columnIndex].tasks.length !== 0
+    }
   },
   methods: {
     createTask (e, tasks) {
