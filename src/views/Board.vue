@@ -1,14 +1,6 @@
 <template>
   <div class="board">
     <div class="flex flex-row items-start">
-      <BoardColumn
-        v-for="(column, $columnIndex) of board.columns"
-        :key="$columnIndex"
-        :column="column"
-        :columnIndex="$columnIndex"
-        :board="board"
-      />
-
       <div class="column flex">
         <input
           type="text"
@@ -18,6 +10,13 @@
           @keyup.enter="createColumn"
         >
       </div>
+      <BoardColumn
+        v-for="(column, $columnIndex) of board.columns"
+        :key="$columnIndex"
+        :column="column"
+        :columnIndex="$columnIndex"
+        :board="board"
+      />
     </div>
 
     <div

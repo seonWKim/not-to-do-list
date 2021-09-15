@@ -4,34 +4,29 @@ export default {
   name: 'workshop',
   columns: [
     {
-      name: 'todo',
+      name: 'Not to do list',
       tasks: [
         {
           description: '',
-          name: 'first task',
+          name: 'Wake up late in the morning(after 8 a.m.)',
           id: uuid(),
           userAssigned: null
         },
         {
           description: '',
-          name: 'second task',
+          name: 'Using smartphone right after wakeup',
           id: uuid(),
           userAssigned: null
         },
         {
           description: '',
-          name: 'and thrid',
+          name: 'Use smartphone before sleeping',
           id: uuid(),
           userAssigned: null
-        }
-      ]
-    },
-    {
-      name: 'in-progress',
-      tasks: [
+        },
         {
           description: '',
-          name: 'first task',
+          name: 'Using kakao talk when studying',
           id: uuid(),
           userAssigned: null
         }
@@ -39,14 +34,7 @@ export default {
     },
     {
       name: 'done',
-      tasks: [
-        {
-          description: '',
-          name: 'first task',
-          id: uuid(),
-          userAssigned: null
-        }
-      ]
+      tasks: []
     }
   ]
 }
