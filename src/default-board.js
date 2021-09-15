@@ -1,10 +1,11 @@
 import { uuid } from './utils'
-
+import constants from './constants'
 export default {
   name: 'workshop',
   columns: [
     {
-      name: 'Not to do list',
+      name: constants.BASE_COLUMN,
+      baseColumn: true,
       tasks: [
         {
           description: '',
@@ -31,10 +32,6 @@ export default {
           userAssigned: null
         }
       ]
-    },
-    {
-      name: 'done',
-      tasks: []
     }
   ]
 }

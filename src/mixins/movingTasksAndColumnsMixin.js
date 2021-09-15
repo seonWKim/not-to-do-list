@@ -23,18 +23,22 @@ export default {
     },
     moveTask ({ fromColumnIndex, fromTaskIndex }) {
       const fromTasks = this.board.columns[fromColumnIndex].tasks
-
+      if (fromTasks === this.column.tasks) return
+      const baseColumn = !!this.board.columns[fromColumnIndex].baseColumn
       this.$store.commit('MOVE_TASK', {
         fromTasks,
         fromTaskIndex,
         toTasks: this.column.tasks,
-        toTaskIndex: this.taskIndex
+        toTaskIndex: this.taskIndex,
+        baseColumn
       })
     },
     moveColumn ({ fromColumnIndex }) {
+      const baseColumn = !!this.board.columns[fromColumnIndex].baseColumn
       this.$store.commit('MOVE_COLUMN', {
         fromColumnIndex,
-        toColumnIndex: this.columnIndex
+        toColumnIndex: this.columnIndex,
+        baseColumn
       })
     }
   }
