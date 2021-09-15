@@ -1,21 +1,22 @@
 <template>
   <div class="board">
-    <div class="flex flex-row items-start">
-      <div class="column flex">
-        <input
-          type="text"
-          class="p-2 mr-2 flex-grow"
-          placeholder="New Column Name"
-          v-model="newColumnName"
-          @keyup.enter="createColumn"
-        >
-      </div>
+    <div class="column flex mb-12" style="max-width: 350px">
+      <input
+        type="text"
+        class="p-2 mr-2 flex-grow"
+        placeholder="New Column Name"
+        v-model="newColumnName"
+        @keyup.enter="createColumn"
+      >
+    </div>
+    <div class="flex flex-wrap">
       <BoardColumn
         v-for="(column, $columnIndex) of board.columns"
         :key="$columnIndex"
         :column="column"
         :columnIndex="$columnIndex"
         :board="board"
+        class="mb-6"
       />
     </div>
 
