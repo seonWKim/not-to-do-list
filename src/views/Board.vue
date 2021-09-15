@@ -4,7 +4,7 @@
       <input
         type="text"
         class="p-2 mr-2 flex-grow"
-        placeholder="New Column Name"
+        placeholder="Enter New Column Name"
         v-model="newColumnName"
         @keyup.enter="createColumn"
       >
@@ -63,8 +63,8 @@ export default {
       const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
 
       if (this.$store.state.board.columns[1].name === date) {
-        alert("You've already registered today's record")
-        return
+        let agreed = window.confirm("You've already registered today's record. Register again?")
+        if (!agreed) return
       }
       this.createColumn(e, date)
     }

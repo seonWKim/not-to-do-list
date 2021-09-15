@@ -17,7 +17,7 @@
           <div :style="{
           'max-width': '3px',
           'margin-right': '25px',
-          'color': $store.state.board.columns[this.columnIndex].freeze ? '#DC2626' : '#9CA3AF',
+          'color': $store.state.board.columns[this.columnIndex].freeze ? '#3B82F6' : '#9CA3AF',
           'cursor': mouseOverDeleteIcon ? 'pointer' : 'default'
         }"
                @mouseover="mouseOverCheckIcon = true"
@@ -32,8 +32,8 @@
           <div :style="{
           'max-width': '3px',
           'margin-right': '20px',
-          'cursor': mouseOverCheckIcon ? 'pointer' : 'default',
-          'color': '#9CA3AF'
+          'cursor': mouseOverDeleteIcon ? 'pointer' : 'default',
+          'color':  mouseOverDeleteIcon ? '#EF4444' : '#9CA3AF'
         }"
                @mouseover="mouseOverDeleteIcon = true"
                @mouseleave="mouseOverDeleteIcon = false"
