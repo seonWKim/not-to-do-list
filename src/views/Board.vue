@@ -16,7 +16,7 @@
         :column="column"
         :columnIndex="$columnIndex"
         :board="board"
-        class="mb-6"
+        :class="{ 'mb-6': true }"
       />
     </div>
 

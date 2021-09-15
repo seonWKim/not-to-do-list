@@ -23,7 +23,6 @@ export default {
     },
     moveTask ({ fromColumnIndex, fromTaskIndex }) {
       if (this.column.freeze) return
-      console.log(this.column)
       const fromTasks = this.board.columns[fromColumnIndex].tasks
       if (fromTasks === this.column.tasks) return
       const isBaseColumn = !!this.board.columns[fromColumnIndex].isBaseColumn
