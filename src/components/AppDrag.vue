@@ -22,6 +22,8 @@ export default {
       e.dataTransfer.effectAllowed = 'move'
       e.dataTransfer.dropEffect = 'move'
 
+      // {"type":"column","fromColumnIndex":1}
+      // {type: 'task', fromColumnIndex: 0, fromTaskIndex: 0}
       e.dataTransfer.setData('payload', JSON.stringify(this.transferData))
     }
   }

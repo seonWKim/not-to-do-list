@@ -16,7 +16,7 @@
         <div class="flex">
           <div :style="{
           'max-width': '3px',
-          'margin-right': '20px',
+          'margin-right': '25px',
           'color': $store.state.board.columns[this.columnIndex].freeze ? '#DC2626' : '#9CA3AF',
           'cursor': mouseOverDeleteIcon ? 'pointer' : 'default'
         }"
@@ -87,13 +87,6 @@ export default {
   computed: {
   },
   methods: {
-    pickupColumn (e, fromColumnIndex) {
-      e.dataTransfer.effectAllowed = 'move'
-      e.dataTransfer.dropEffect = 'move'
-
-      e.dataTransfer.setData('from-column-index', fromColumnIndex)
-      e.dataTransfer.setData('type', 'column')
-    },
     createTask (e, tasks) {
       this.$store.commit('CREATE_TASK', {
         tasks,

@@ -14,6 +14,8 @@ export default {
     onDrop (e) {
       const transferData = JSON.parse(e.dataTransfer.getData('payload'))
 
+      // {type: 'column', fromColumnIndex: 1}
+      // {type: 'task', fromColumnIndex: 0, fromTaskIndex: 1}
       this.$emit('drop', transferData)
     }
   }

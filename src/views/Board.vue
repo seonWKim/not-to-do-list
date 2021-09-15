@@ -1,6 +1,6 @@
 <template>
   <div class="board">
-    <div class="column flex mb-12" style="max-width: 350px">
+    <div class="column flex justify-center mb-12" style="max-width: 350px">
       <input
         type="text"
         class="p-2 mr-2 flex-grow"
@@ -8,7 +8,7 @@
         v-model="newColumnName"
         @keyup.enter="createColumn"
       >
-      <button @click="addToday">Add Today</button>
+      <button @click="addToday($event)">Add Today</button>
     </div>
     <div class="flex flex-wrap">
       <BoardColumn
@@ -52,19 +52,21 @@ export default {
     close () {
       this.$router.push({ name: 'board' })
     },
-    createColumn () {
+    createColumn (e, name = this.newColumnName) {
       this.$store.commit('CREATE_COLUMN', {
-        name: this.newColumnName
+        name: name
       })
-
       this.newColumnName = ''
     },
-    addToday () {
+    addToday (e) {
       const today = new Date()
       const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
-      this.$store.commit('CREATE_COLUMN', {
-        name: date
-      })
+
+      if (this.$store.state.board.columns[1].name === date) {
+        alert("You've already registered today's record")
+        return
+      }
+      this.createColumn(e, date)
     }
   }
 }
