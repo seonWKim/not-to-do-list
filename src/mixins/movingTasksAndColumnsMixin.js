@@ -22,7 +22,7 @@ export default {
       }
     },
     moveTask ({ fromColumnIndex, fromTaskIndex }) {
-      if (this.column.freeze) return
+      if (this.column.freeze || this.board.columns[fromColumnIndex].freeze) return
       const fromTasks = this.board.columns[fromColumnIndex].tasks
       if (fromTasks === this.column.tasks) return
       const isBaseColumn = !!this.board.columns[fromColumnIndex].isBaseColumn

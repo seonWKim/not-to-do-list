@@ -8,6 +8,7 @@
         v-model="newColumnName"
         @keyup.enter="createColumn"
       >
+      <button @click="addToday">Add Today</button>
     </div>
     <div class="flex flex-wrap">
       <BoardColumn
@@ -57,6 +58,13 @@ export default {
       })
 
       this.newColumnName = ''
+    },
+    addToday () {
+      const today = new Date()
+      const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
+      this.$store.commit('CREATE_COLUMN', {
+        name: date
+      })
     }
   }
 }
