@@ -15,11 +15,13 @@
         @change="updateTaskProperty($event, 'description')"
       />
 
-      <button
-        @click="deleteTask"
-        class="mt-2 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold py-2 px-4 border border-blue-500 rounded">
-        delete
-      </button>
+      <div class="w-full flex justify-end">
+        <button
+          @click="deleteTask"
+          class="mt-2 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold py-2 px-4 border border-blue-500 rounded">
+          delete
+        </button>
+      </div>
     </div>
   </div>
 </template>

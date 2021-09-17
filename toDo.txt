@@ -1,7 +1,6 @@
 // todo
-removing columns
 domain 연결
-reset all
-add perfect if nothing is included
 change name of the column
+logo
+
 
