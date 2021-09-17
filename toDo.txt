@@ -3,3 +3,5 @@ removing columns
 domain 연결
 reset all
 add perfect if nothing is included
+track columns with the current date -> hidden field
+change name of the column

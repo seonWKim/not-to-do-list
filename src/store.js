@@ -35,7 +35,12 @@ export default new Vuex.Store({
       })
     },
     CREATE_COLUMN (state, { name }) {
-      const newColumn = { name: name, tasks: [] }
+      const newColumn = {
+        name: name,
+        freeze: false,
+        createdAt: new Date().getTime(),
+        tasks: []
+      }
       state.board.columns.splice(1, 0, newColumn)
     },
     UPDATE_TASK (state, { task, key, value }) {

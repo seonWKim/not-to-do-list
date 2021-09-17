@@ -7,6 +7,7 @@ export default {
       name: constants.BASE_COLUMN,
       isBaseColumn: true,
       freeze: true,
+      createdAt: new Date().getTime(),
       tasks: [
         {
           description: '',
