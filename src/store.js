@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import defaultBoard from './default-board'
+import boardExample from './default-board'
 import { saveStatePlugin, uuid } from './utils'
 
 Vue.use(Vuex)
 
-const board = JSON.parse(localStorage.getItem('board')) || defaultBoard
+const board = JSON.parse(localStorage.getItem('board')) || boardExample.boardDefault
 
 export default new Vuex.Store({
   plugins: [saveStatePlugin],
@@ -62,6 +62,10 @@ export default new Vuex.Store({
     },
     DELETE_COLUMN (state, { columnIndex }) {
       state.board.columns.splice(columnIndex, 1)
+    },
+    RESET_ALL (state) {
+      localStorage.removeItem('board')
+      state.board = boardExample.boardEmpty
     }
   }
 })

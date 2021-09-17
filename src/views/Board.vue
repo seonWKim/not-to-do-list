@@ -1,6 +1,6 @@
 <template>
-  <div class="board">
-    <div class="column flex justify-center mb-12" style="max-width: 350px">
+  <div class="board flex flex-col justify-between">
+    <div class="column flex justify-center mb-3" style="max-width: 350px">
       <input
         type="text"
         class="p-2 mr-2 flex-grow"
@@ -10,17 +10,23 @@
       >
       <button @click="addToday($event)">Add Today</button>
     </div>
-    <div class="flex flex-wrap">
+    <div class="flex flex-wrap mb-auto">
       <BoardColumn
         v-for="(column, $columnIndex) of board.columns"
         :key="$columnIndex"
         :column="column"
         :columnIndex="$columnIndex"
         :board="board"
-        :class="{ 'mb-6': true }"
+        :class="{ 'mb-3': true }"
       />
     </div>
-
+    <div class="column flex justify-center mb-3" style="max-width: 350px">
+      <button class="text-red text-xl"
+              @click="resetAll"
+      >
+        Reset All
+      </button>
+    </div>
     <div
       class="task-bg"
       v-if="isTaskOpen"
@@ -68,6 +74,10 @@ export default {
         if (!agreed) return
       }
       this.createColumn(e, date)
+    },
+    resetAll () {
+      if (!window.confirm('Resetting columns will erase all the data. Are you sure you want to reset?')) return
+      this.$store.commit('RESET_ALL')
     }
   }
 }
