@@ -2,5 +2,4 @@
 domain 연결
 change name of the column
 logo
-
-
+task 복사시 깊은 복사가 될 수 있도록 하기

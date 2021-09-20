@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import boardExample from './default-board'
 import { saveStatePlugin, uuid } from './utils'
-
+import _ from 'lodash'
 Vue.use(Vuex)
 
 const board = JSON.parse(localStorage.getItem('board')) || boardExample.boardDefault
@@ -47,8 +47,9 @@ export default new Vuex.Store({
       task[key] = value
     },
     MOVE_TASK (state, { fromTasks, toTasks, fromTaskIndex, toTaskIndex, isBaseColumn = false }) {
-      let taskToMove = fromTasks[fromTaskIndex]
-      if (!isBaseColumn) taskToMove = fromTasks.splice(fromTaskIndex, 1)[0]
+      const taskToMove = _.cloneDeep(fromTasks[fromTaskIndex])
+      if (!isBaseColumn) fromTasks.splice(fromTaskIndex, 1)
+      taskToMove.id = uuid()
       toTasks.splice(toTaskIndex, 0, taskToMove)
     },
     MOVE_COLUMN (state, { fromColumnIndex, toColumnIndex, isBaseColumn = false }) {
