@@ -6,7 +6,7 @@ export function saveStatePlugin (store) {
   store.subscribe(
     (mutation, state) => {
       localStorage.setItem(
-        'board',
+        store.state.currentBoardInLocalStorage,
         JSON.stringify(state.board)
       )
     }

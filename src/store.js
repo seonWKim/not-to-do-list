@@ -7,12 +7,14 @@ import _ from 'lodash'
 Vue.use(Vuex)
 
 const board =
-  JSON.parse(localStorage.getItem('board')) || boardExample.boardDefault
+  JSON.parse(localStorage.getItem('board1')) || boardExample.boardDefault.board1
+const currentBoardInLocalStorage = 'board1'
 
 export default new Vuex.Store({
   plugins: [saveStatePlugin],
   state: {
-    board
+    board,
+    currentBoardInLocalStorage
   },
   getters: {
     getTask (state) {

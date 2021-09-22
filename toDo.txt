@@ -1,8 +1,8 @@
 // todo
-task content change after keyon enter
 not only (not-to-do-list) but also other things ~ => page change maybe ?
 
 // done
 task 복사시 깊은 복사가 될 수 있도록 하기 -> _.clonedeep, uuid()
 change name of the column -> using e.target.value and @change, @key.up="enter"
 domain 연결 -> adding "www" works -> www를 사용했을때의 장점 -> cookie & subdomain 과의 관계
+task content change after keyon enter -> will not be able to add return characters in text box
