@@ -5,10 +5,7 @@ export function uuid () {
 export function saveStatePlugin (store) {
   store.subscribe(
     (mutation, state) => {
-      localStorage.setItem(
-        store.state.currentBoardInLocalStorage,
-        JSON.stringify(state.board)
-      )
+      state.boards[state.boardIndex] = store.state.board
     }
   )
 }

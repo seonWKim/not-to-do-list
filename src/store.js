@@ -6,15 +6,16 @@ import _ from 'lodash'
 
 Vue.use(Vuex)
 
-const board =
-  JSON.parse(localStorage.getItem('board1')) || boardExample.boardDefault.board1
-const currentBoardInLocalStorage = 'board1'
+const boards = JSON.parse(localStorage.getItem('boards')) || boardExample.boardDefault.boards
+const board = boards[0]
+const boardIndex = 0
 
 export default new Vuex.Store({
   plugins: [saveStatePlugin],
   state: {
     board,
-    currentBoardInLocalStorage
+    boards,
+    boardIndex
   },
   getters: {
     getTask (state) {
@@ -30,6 +31,9 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    SAVE_ALL_BOARDS (state) {
+      localStorage.setItem('boards', JSON.stringify(state.boards))
+    },
     CREATE_TASK (state, { tasks, name }) {
       tasks.push({
         name,
