@@ -1,6 +1,5 @@
 // todo
 domain 연결
-logo
 task content change after keyon enter
 not only (not-to-do-list) but also other things ~ => page change maybe ?
 
