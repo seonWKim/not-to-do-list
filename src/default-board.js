@@ -2,6 +2,7 @@ import { uuid } from './utils'
 import constants from './constants'
 export default {
   boardDefault: {
+    name: 'NOT_TO_DO_LIST',
     columns: [
       {
         name: constants.BASE_COLUMN,
