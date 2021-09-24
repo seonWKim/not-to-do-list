@@ -101,6 +101,9 @@ export default new Vuex.Store({
     },
     UPDATE_COLUMN_NAME (state, { name, columnIndex }) {
       state.board.columns[columnIndex].name = name
+      if (state.board.columns[columnIndex].isBaseColumn) {
+        state.board.name = name
+      }
     },
     DELETE_COLUMN (state, { columnIndex }) {
       state.board.columns.splice(columnIndex, 1)
