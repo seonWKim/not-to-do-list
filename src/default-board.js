@@ -1,12 +1,12 @@
 import { uuid } from './utils'
-import constants from './constants'
+
 export default {
   boardDefault: {
     boardEmpty: {
       name: 'EMPTY_BOARD',
       columns: [
         {
-          name: constants.BASE_COLUMN,
+          name: 'EMPTY_BOARD',
           isBaseColumn: true,
           freeze: true,
           createdAt: new Date().getTime(),
@@ -19,7 +19,7 @@ export default {
         name: 'NOT_TO_DO_LIST',
         columns: [
           {
-            name: constants.BASE_COLUMN,
+            name: 'NOT_TO_DO_LIST',
             isBaseColumn: true,
             freeze: true,
             createdAt: new Date().getTime(),
@@ -53,10 +53,10 @@ export default {
         ]
       },
       {
-        name: 'board2',
+        name: 'BOARD 2',
         columns: [
           {
-            name: 'board2',
+            name: 'BOARD 2',
             isBaseColumn: true,
             freeze: true,
             createdAt: new Date().getTime(),
@@ -65,10 +65,10 @@ export default {
         ]
       },
       {
-        name: 'board3',
+        name: 'BOARD 3',
         columns: [
           {
-            name: 'board3',
+            name: 'BOARD 3',
             isBaseColumn: true,
             freeze: true,
             createdAt: new Date().getTime(),
@@ -77,10 +77,10 @@ export default {
         ]
       },
       {
-        name: 'board4',
+        name: 'BOARD 4',
         columns: [
           {
-            name: 'board4',
+            name: 'BOARD 4',
             isBaseColumn: true,
             freeze: true,
             createdAt: new Date().getTime(),

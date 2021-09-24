@@ -18,6 +18,10 @@
         @click="changeBoard(index)"
       >{{ name }}
       </button>
+      <button
+        class="board-names"
+        @click="addBoard"
+      >+</button>
     </div>
     <div class="flex flex-wrap mb-auto">
       <BoardColumn
@@ -95,6 +99,9 @@ export default {
     resetAll () {
       if (!window.confirm('Resetting columns will erase all the data. Are you sure you want to reset?')) return
       this.$store.commit('RESET_ALL')
+    },
+    addBoard () {
+      this.$store.commit('ADD_BOARD')
     },
     changeBoard (boardIndex) {
       this.$store.commit('CHANGE_BOARD', { boardIndex: boardIndex })

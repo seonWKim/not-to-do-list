@@ -30,12 +30,18 @@ export default new Vuex.Store({
       }
     },
     getBoardNames (state) {
+      console.log(state.boards)
       return state.boards.map(board => board.name)
     }
   },
   mutations: {
     SAVE_ALL_BOARDS (state) {
       localStorage.setItem('boards', JSON.stringify(state.boards))
+    },
+    ADD_BOARD (state) {
+      state.boards.push(_.cloneDeep(boardExample.boardDefault.boardEmpty))
+      state.boardIndex = state.boards.length - 1
+      state.board = state.boards[state.boardIndex]
     },
     CHANGE_BOARD (state, { boardIndex }) {
       state.boardIndex = boardIndex
@@ -49,8 +55,6 @@ export default new Vuex.Store({
       state.boards.splice(state.boardIndex, 1)
       if (state.boardIndex === state.boards.length) state.boardIndex = state.boardIndex - 1
       state.board = state.boards[state.boardIndex]
-
-      console.log(state.boards)
     },
     CREATE_TASK (state, { tasks, name }) {
       tasks.push({
@@ -110,7 +114,7 @@ export default new Vuex.Store({
     },
     RESET_ALL (state) {
       localStorage.removeItem('board')
-      state.board = boardExample.boardEmpty
+      state.board = boardExample.boardDefault.boardEmpty
     }
   }
 })
