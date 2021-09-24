@@ -1,4 +1,5 @@
 // todo
+confirm removing board
 
 // done
 task 복사시 깊은 복사가 될 수 있도록 하기 -> _.clonedeep, uuid()

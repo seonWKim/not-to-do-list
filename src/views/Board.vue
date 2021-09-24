@@ -124,7 +124,7 @@ export default {
 }
 
 .board-names {
-  @apply bg-grey-lightest p-2 mb-3 mr-3 text-left shadow rounded;
+  @apply bg-grey-lightest p-2 mb-3 mr-3 text-left shadow rounded-xl;
 }
 
 .button {
