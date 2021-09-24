@@ -128,7 +128,6 @@ export default {
 }
 
 .button {
-  @apply bg-grey-light w-auto mr-4 text-left shadow rounded;
-  max-width: 175px;
+  @apply bg-grey-lightest p-2 mb-3 mr-3 text-left shadow rounded-xl;
 }
 </style>
