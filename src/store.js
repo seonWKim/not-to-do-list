@@ -52,6 +52,7 @@ export default new Vuex.Store({
         alert("You can't remove the last board")
         return
       }
+      if (!window.confirm(`Confirm deleting board ${state.board.name}?`)) return
       state.boards.splice(state.boardIndex, 1)
       if (state.boardIndex === state.boards.length) state.boardIndex = state.boardIndex - 1
       state.board = state.boards[state.boardIndex]
