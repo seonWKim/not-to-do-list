@@ -56,7 +56,7 @@ export default {
         name: 'board2',
         columns: [
           {
-            name: constants.BASE_COLUMN,
+            name: 'board2',
             isBaseColumn: true,
             freeze: true,
             createdAt: new Date().getTime(),
@@ -68,7 +68,7 @@ export default {
         name: 'board3',
         columns: [
           {
-            name: constants.BASE_COLUMN,
+            name: 'board3',
             isBaseColumn: true,
             freeze: true,
             createdAt: new Date().getTime(),
@@ -80,7 +80,7 @@ export default {
         name: 'board4',
         columns: [
           {
-            name: constants.BASE_COLUMN,
+            name: 'board4',
             isBaseColumn: true,
             freeze: true,
             createdAt: new Date().getTime(),

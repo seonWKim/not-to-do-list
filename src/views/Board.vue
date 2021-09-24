@@ -10,6 +10,15 @@
       >
       <button @click="addToday($event)">Add Today</button>
     </div>
+    <div class="flex flex-start">
+      <button
+        v-for="(name, index) in boardNames"
+        :key="index"
+        class="board-names"
+        @click="changeBoard(index)"
+      >{{ name }}
+      </button>
+    </div>
     <div class="flex flex-wrap mb-auto">
       <BoardColumn
         v-for="(column, $columnIndex) of board.columns"
@@ -20,11 +29,16 @@
         :class="{ 'mb-3': true }"
       />
     </div>
-    <div class="column flex justify-center mb-3" style="max-width: 350px">
-      <button class="text-red text-xl"
+    <div class="flex">
+      <button class="button text-red text-xl p-2 mr-3"
               @click="resetAll"
       >
         Reset All
+      </button>
+      <button class="button text-red text-xl p-2"
+              @click="removeBoard"
+      >
+        Remove board
       </button>
     </div>
     <div
@@ -52,6 +66,9 @@ export default {
     ...mapState(['board']),
     isTaskOpen () {
       return this.$route.name === 'task'
+    },
+    boardNames () {
+      return this.$store.getters.getBoardNames
     }
   },
   methods: {
@@ -78,6 +95,12 @@ export default {
     resetAll () {
       if (!window.confirm('Resetting columns will erase all the data. Are you sure you want to reset?')) return
       this.$store.commit('RESET_ALL')
+    },
+    changeBoard (boardIndex) {
+      this.$store.commit('CHANGE_BOARD', { boardIndex: boardIndex })
+    },
+    removeBoard () {
+      this.$store.commit('REMOVE_BOARD')
     }
   }
 }
@@ -91,5 +114,14 @@ export default {
 .task-bg {
   @apply pin absolute;
   background: rgba(0,0,0,0.5);
+}
+
+.board-names {
+  @apply bg-grey-lightest p-2 mb-3 mr-3 text-left shadow rounded;
+}
+
+.button {
+  @apply bg-grey-light w-auto mr-4 text-left shadow rounded;
+  max-width: 175px;
 }
 </style>

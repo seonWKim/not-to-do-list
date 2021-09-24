@@ -28,11 +28,29 @@ export default new Vuex.Store({
           }
         }
       }
+    },
+    getBoardNames (state) {
+      return state.boards.map(board => board.name)
     }
   },
   mutations: {
     SAVE_ALL_BOARDS (state) {
       localStorage.setItem('boards', JSON.stringify(state.boards))
+    },
+    CHANGE_BOARD (state, { boardIndex }) {
+      state.boardIndex = boardIndex
+      state.board = state.boards[boardIndex]
+    },
+    REMOVE_BOARD (state) {
+      if (state.boards.length <= 1) {
+        alert("You can't remove the last board")
+        return
+      }
+      state.boards.splice(state.boardIndex, 1)
+      if (state.boardIndex === state.boards.length) state.boardIndex = state.boardIndex - 1
+      state.board = state.boards[state.boardIndex]
+
+      console.log(state.boards)
     },
     CREATE_TASK (state, { tasks, name }) {
       tasks.push({
