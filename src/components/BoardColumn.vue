@@ -11,7 +11,6 @@
         <input
           type="text"
           class="flex items-center mb-2 font-bold text-color-green bg-transparent"
-          :class="{ 'text-red': imperfectDay }"
           :value="column.name"
           @change="updateColumnName($event)"
           @keyup.enter="updateColumnName($event)"
@@ -119,10 +118,10 @@ export default {
   },
   mixins: [movingTasksAndColumnsMixin],
   computed: {
-    imperfectDay () {
-      if (this.$store.state.board.columns[this.columnIndex].isBaseColumn) return false
-      return this.$store.state.board.columns[this.columnIndex].tasks.length !== 0
-    }
+    // imperfectDay () {
+    //   if (this.$store.state.board.columns[this.columnIndex].isBaseColumn) return false
+    //   return this.$store.state.board.columns[this.columnIndex].tasks.length !== 0
+    // }
   },
   data () {
     return {
