@@ -1,6 +1,6 @@
 # NOT TO DO LIST 
 
-## Link to project 
+## Link 
 * [Not to do list](http://www.not-to-do-list.site)
 ## Reference 
 * [Vue mastery trello clone](https://github.com/Code-Pop/watch-us-build-trello/releases/tag/lesson-9-complete)
