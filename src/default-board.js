@@ -75,18 +75,6 @@ export default {
             tasks: []
           }
         ]
-      },
-      {
-        name: 'BOARD 4',
-        columns: [
-          {
-            name: 'BOARD 4',
-            isBaseColumn: true,
-            freeze: true,
-            createdAt: new Date().getTime(),
-            tasks: []
-          }
-        ]
       }
     ]
   }

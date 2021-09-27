@@ -16,7 +16,7 @@ export default {
 
   methods: {
     beforeWindowUnload (e) {
-      // this.$store.commit('SAVE_ALL_BOARDS')
+      this.$store.commit('SAVE_ALL_BOARDS')
     }
   }
 }
