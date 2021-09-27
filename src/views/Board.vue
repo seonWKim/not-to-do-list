@@ -85,8 +85,6 @@ export default {
     },
     boardNames () {
       return this.$store.state.boards.map(board => board.name)
-
-      // return this.$store.getters.getBoardNames
     }
   },
   methods: {

@@ -6,7 +6,7 @@ import _ from 'lodash'
 
 Vue.use(Vuex)
 
-const boards = JSON.parse(localStorage.getItem('boards')) || boardExample.boardDefault.boards
+const boards = _.cloneDeep(JSON.parse(localStorage.getItem('boards')) || boardExample.boardDefault.boards)
 const board = boards[0]
 const boardIndex = 0
 
@@ -115,7 +115,10 @@ export default new Vuex.Store({
     },
     RESET_ALL (state) {
       localStorage.removeItem('boards')
-      state.boards = _.cloneDeep(boardExample.boardDefault.boards)
+      const newBoards = _.cloneDeep(boardExample.boardDefault.boards)
+      state.boardIndex = 0
+      state.board = newBoards[0]
+      state.boards = newBoards
     }
   }
 })
