@@ -1,5 +1,6 @@
 // todo
-download the localStorage files and retrieve the localStorage file
+upload board from json file
+reset all 문제점 -> reset 시 마지막 column의 값이 남음
 
 // done
 task 복사시 깊은 복사가 될 수 있도록 하기 -> _.clonedeep, uuid()
@@ -13,3 +14,4 @@ changing board names
 board change logic
 board buttons
 confirm removing board
+download current boards as json file

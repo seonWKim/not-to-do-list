@@ -37,12 +37,19 @@
       <button class="button text-teal-darker text-xl p-2 mr-3"
               @click="saveToDisk"
       >
-        Save To Disk
+        Save to disk
       </button>
+      <label
+        for="boards-file"
+        style="cursor: pointer"
+        class="button text-teal-darker text-xl p-2 mr-3">
+          Upload from disk
+        <input type="file" id="boards-file" style="display: none" @change="uploadFromDisk($event)" accept="application/json">
+      </label>
       <button class="button text-red text-xl p-2 mr-3"
               @click="resetAll"
       >
-        Reset All
+        Reset all
       </button>
       <button class="button text-red text-xl p-2"
               @click="removeBoard"
@@ -77,7 +84,9 @@ export default {
       return this.$route.name === 'task'
     },
     boardNames () {
-      return this.$store.getters.getBoardNames
+      return this.$store.state.boards.map(board => board.name)
+
+      // return this.$store.getters.getBoardNames
     }
   },
   methods: {
@@ -104,16 +113,32 @@ export default {
     saveToDisk () {
       let boards = this.$store.state.boards
       let blob = new Blob([JSON.stringify(boards)],
-        { type: 'text/plain;charset=utf-8' })
+        { type: 'application/json' })
       let a = document.createElement('a')
       document.body.appendChild(a)
-      a.style = 'display: none'
 
       let url = window.URL.createObjectURL(blob)
       a.href = url
-      a.download = 'not-to-do-list.txt'
+      a.download = 'not-to-do-list.json'
       a.click()
       window.URL.revokeObjectURL(url)
+    },
+    uploadFromDisk (event) {
+      try {
+        let files = event.target.files
+        if (!files.length) {
+          alert('No file selected!')
+          return
+        }
+        let file = files[0]
+        let reader = new FileReader()
+        reader.onload = (event) => {
+          this.$store.commit('SAVE_ALL_BOARDS', JSON.parse(event.target.result))
+        }
+        reader.readAsText(file)
+      } catch (err) {
+        alert('Errors on uploading file')
+      }
     },
     resetAll () {
       if (!window.confirm('Resetting columns will erase all the data. Are you sure you want to reset?')) return

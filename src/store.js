@@ -30,12 +30,12 @@ export default new Vuex.Store({
       }
     },
     getBoardNames (state) {
-      console.log(state.boards)
       return state.boards.map(board => board.name)
     }
   },
   mutations: {
-    SAVE_ALL_BOARDS (state) {
+    SAVE_ALL_BOARDS (state, boards) {
+      if (!boards) boards = state.boards
       localStorage.setItem('boards', JSON.stringify(state.boards))
     },
     ADD_BOARD (state) {
@@ -114,8 +114,8 @@ export default new Vuex.Store({
       state.board.columns.splice(columnIndex, 1)
     },
     RESET_ALL (state) {
-      localStorage.removeItem('board')
-      state.board = boardExample.boardDefault.boardEmpty
+      localStorage.removeItem('boards')
+      state.boards = _.cloneDeep(boardExample.boardDefault.boards)
     }
   }
 })
