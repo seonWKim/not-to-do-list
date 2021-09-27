@@ -34,6 +34,11 @@
       />
     </div>
     <div class="flex">
+      <button class="button text-teal-darker text-xl p-2 mr-3"
+              @click="saveToDisk"
+      >
+        Save To Disk
+      </button>
       <button class="button text-red text-xl p-2 mr-3"
               @click="resetAll"
       >
@@ -95,6 +100,20 @@ export default {
         if (!agreed) return
       }
       this.createColumn(e, date)
+    },
+    saveToDisk () {
+      let boards = this.$store.state.boards
+      let blob = new Blob([JSON.stringify(boards)],
+        { type: 'text/plain;charset=utf-8' })
+      let a = document.createElement('a')
+      document.body.appendChild(a)
+      a.style = 'display: none'
+
+      let url = window.URL.createObjectURL(blob)
+      a.href = url
+      a.download = 'not-to-do-list.txt'
+      a.click()
+      window.URL.revokeObjectURL(url)
     },
     resetAll () {
       if (!window.confirm('Resetting columns will erase all the data. Are you sure you want to reset?')) return

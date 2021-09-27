@@ -117,12 +117,6 @@ export default {
     columnIndex: Number
   },
   mixins: [movingTasksAndColumnsMixin],
-  computed: {
-    // imperfectDay () {
-    //   if (this.$store.state.board.columns[this.columnIndex].isBaseColumn) return false
-    //   return this.$store.state.board.columns[this.columnIndex].tasks.length !== 0
-    // }
-  },
   data () {
     return {
       mouseOverCheckIcon: false,
