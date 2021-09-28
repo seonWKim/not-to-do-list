@@ -12,6 +12,14 @@
 * To be a better person
 
 ## How to use this application 
+![Not-to-do-list application UI](./not-to-do-list-architecture.drawio.png)
+### Features
+- CRUD boards 
+- CRUD tasks 
+- Drag and drop board 
+- Drag and drop task 
+- Save boards in disk (json format)
+- Upload json file to boards
 
 ### Project setup 
 ```
