@@ -8,7 +8,7 @@ import getters from './vuex/getters'
 import mutations from './vuex/mutations'
 Vue.use(Vuex)
 
-const boards = _.cloneDeep(JSON.parse(localStorage.getItem('boards')) || boardExample.boardDefault.boards)
+const boards = _.cloneDeep((localStorage && JSON.parse(localStorage.getItem('boards'))) || boardExample.boardDefault.boards)
 const board = boards[0]
 const boardIndex = 0
 
