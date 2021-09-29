@@ -12,7 +12,8 @@
 * To be a better person
 
 ## How to use this application 
-![Not-to-do-list application UI](./not-to-do-list-architecture.drawio.png)
+![Not-to-do-list application UI](./not-to-do-list-usage.drawio.png)
+![Not-to-do-list application architecture](./notToDoList-architecture.drawio.png)
 ### Features
 - CRUD boards 
 - CRUD tasks 
