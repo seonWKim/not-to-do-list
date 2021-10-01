@@ -1,7 +1,7 @@
 # NOT TO DO LIST 
 
 ## Link 
-* [Not to do list](http://www.not-to-do-list.site)
+* [Not to do list](https://seonwoo960000.github.io/not-to-do-list/)
 ## Reference 
 * [Vue mastery trello clone](https://github.com/Code-Pop/watch-us-build-trello/releases/tag/lesson-9-complete)
 * [Youtube - Why not-to-do-list is important](https://www.youtube.com/watch?v=gmrs8UxAZwo&t=295s)
