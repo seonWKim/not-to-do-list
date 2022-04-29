@@ -13,7 +13,6 @@
 
 ## How to use this application 
 ![Not-to-do-list application UI](./not-to-do-list-usage.drawio.png)
-![Not-to-do-list application architecture](./notToDoList-architecture.drawio.png)
 #### I'm currently using github.io to host my application 
 ### Features
 - CRUD boards 
